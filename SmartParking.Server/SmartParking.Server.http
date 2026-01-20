@@ -1,6 +1,39 @@
-@SmartParking.Server_HostAddress = http://localhost:5272
+@api = http://localhost:5272
 
-GET {{SmartParking.Server_HostAddress}}/weatherforecast/
+GET {{api}}/weatherforecast/
 Accept: application/json
 
+
+### Auth
+
+POST {{api}}/api/Auth/register
+Content-Type: application/json
+
+{
+  "Email": "admin@gmail.com",
+  "Username": "admin",
+  "Password": "Admin123",
+  "FirstName": "Jan",
+  "LastName": "Kowalski"
+}
+
 ###
+POST {{api}}/api/Auth/login
+Content-Type: application/json
+
+{
+  "Username": "admin",
+  "Password": "Admin123"
+}
+
+### User
+
+GET {{api}}/api/User/97e42076-2c74-440d-6985-08de58591480
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijk3ZTQyMDc2LTJjNzQtNDQwZC02OTg1LTA4ZGU1ODU5MTQ4MCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3Njg5NDQwNzgsImlzcyI6IlNtYXJ0UGFya2luZyIsImF1ZCI6IlNtYXJ0UGFya2luZ1VzZXJzIn0._o2z-pCOMh51GNP20CgeqD5I1kqp69Fmneu7nJMC2io
+
+###
+
+GET {{api}}/api/User/me
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijk3ZTQyMDc2LTJjNzQtNDQwZC02OTg1LTA4ZGU1ODU5MTQ4MCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3Njg5NDQwNzgsImlzcyI6IlNtYXJ0UGFya2luZyIsImF1ZCI6IlNtYXJ0UGFya2luZ1VzZXJzIn0._o2z-pCOMh51GNP20CgeqD5I1kqp69Fmneu7nJMC2io

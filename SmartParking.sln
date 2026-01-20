@@ -7,6 +7,12 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "smartparking.client", "smar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Server", "SmartParking.Server\SmartParking.Server.csproj", "{166E95E3-39A3-455A-A105-15495D4B3BF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Application", "SmartParking.Application\SmartParking.Application.csproj", "{83851AFF-FD23-490A-BE5D-587B46E85764}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Infrastructure", "SmartParking.Infrastructure\SmartParking.Infrastructure.csproj", "{4391CB42-D8E3-48DC-A331-991CE8F76AC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Domain", "SmartParking.Domain\SmartParking.Domain.csproj", "{8FEB8D74-B990-4973-B3B3-5DC70E7DBE7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +29,18 @@ Global
 		{166E95E3-39A3-455A-A105-15495D4B3BF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{166E95E3-39A3-455A-A105-15495D4B3BF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{166E95E3-39A3-455A-A105-15495D4B3BF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83851AFF-FD23-490A-BE5D-587B46E85764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83851AFF-FD23-490A-BE5D-587B46E85764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83851AFF-FD23-490A-BE5D-587B46E85764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83851AFF-FD23-490A-BE5D-587B46E85764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4391CB42-D8E3-48DC-A331-991CE8F76AC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4391CB42-D8E3-48DC-A331-991CE8F76AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4391CB42-D8E3-48DC-A331-991CE8F76AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4391CB42-D8E3-48DC-A331-991CE8F76AC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FEB8D74-B990-4973-B3B3-5DC70E7DBE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FEB8D74-B990-4973-B3B3-5DC70E7DBE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FEB8D74-B990-4973-B3B3-5DC70E7DBE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FEB8D74-B990-4973-B3B3-5DC70E7DBE7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
