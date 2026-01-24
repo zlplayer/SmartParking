@@ -22,6 +22,71 @@ namespace SmartParking.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("SmartParking.Domain.Entities.ParkingSpace", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Height")
+                        .HasColumnType("real");
+
+                    b.Property<Guid>("ParkingZoneId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Weight")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParkingZoneId");
+
+                    b.ToTable("ParkingSpaces");
+                });
+
+            modelBuilder.Entity("SmartParking.Domain.Entities.ParkingZone", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Regulamin")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TariffType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ParkingZones");
+                });
+
             modelBuilder.Entity("SmartParking.Domain.Entities.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -73,6 +138,58 @@ namespace SmartParking.Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("SmartParking.Domain.Entities.Vehicle", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CountryCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RegistrationNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Vehicles");
+                });
+
+            modelBuilder.Entity("SmartParking.Domain.Entities.ParkingSpace", b =>
+                {
+                    b.HasOne("SmartParking.Domain.Entities.ParkingZone", "ParkingZone")
+                        .WithMany("ParkingSpaces")
+                        .HasForeignKey("ParkingZoneId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ParkingZone");
+                });
+
+            modelBuilder.Entity("SmartParking.Domain.Entities.ParkingZone", b =>
+                {
+                    b.HasOne("SmartParking.Domain.Entities.User", "User")
+                        .WithMany("ParkingZones")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("SmartParking.Domain.Entities.User", b =>
                 {
                     b.HasOne("SmartParking.Domain.Entities.Role", "Role")
@@ -82,6 +199,29 @@ namespace SmartParking.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("SmartParking.Domain.Entities.Vehicle", b =>
+                {
+                    b.HasOne("SmartParking.Domain.Entities.User", "User")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SmartParking.Domain.Entities.ParkingZone", b =>
+                {
+                    b.Navigation("ParkingSpaces");
+                });
+
+            modelBuilder.Entity("SmartParking.Domain.Entities.User", b =>
+                {
+                    b.Navigation("ParkingZones");
+
+                    b.Navigation("Vehicles");
                 });
 #pragma warning restore 612, 618
         }

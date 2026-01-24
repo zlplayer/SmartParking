@@ -14,6 +14,9 @@ public static class ServiceCollectionExtension
         services.AddSqlServer<SmartParkingDbContext>(configuration.GetConnectionString("SmartParkingDbContext"));
 
         services.AddScoped<IUserRepositories, UserRepositories>();
+        services.AddScoped<IVehicleRepositories, VehicleRepositories>();
+        services.AddScoped<IParkingZoneRepositories, ParkingZoneRepositories>();
+        services.AddScoped<IParkingSpaceRepositories, ParkingSpaceRepositories>();
         
         services.AddScoped<SmartParkingSeeder>();
     }
