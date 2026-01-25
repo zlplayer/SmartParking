@@ -19,7 +19,6 @@ public class VehicleRepositories:IVehicleRepositories
 
     public async Task<IEnumerable<Vehicle>> GetVehiclesByUserIdAsync(Guid userId)
         => await _dbContext.Vehicles.Where(x => x.UserId == userId).ToListAsync();
-
     
     public async Task CreateVehicleAsync(Vehicle vehicle)
     {
