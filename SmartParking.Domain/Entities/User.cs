@@ -15,4 +15,6 @@ public class User
     public List<Vehicle> Vehicles { get; set; } = new();
 
     public List<ParkingZone> ParkingZones { get; set; } = new();
+
+    public List<Reservation> Reservations { get; set; } = new();
 }

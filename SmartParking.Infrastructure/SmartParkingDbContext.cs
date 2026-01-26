@@ -10,6 +10,7 @@ public class SmartParkingDbContext : DbContext
     public DbSet<Vehicle>  Vehicles { get; set; }
     public DbSet<ParkingZone> ParkingZones { get; set; }
     public DbSet<ParkingSpace> ParkingSpaces { get; set; }
+    public DbSet<Reservation> Reservations { get; set; }
     
     public SmartParkingDbContext(DbContextOptions<SmartParkingDbContext> options):base(options)
     {
@@ -19,11 +20,11 @@ public class SmartParkingDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<ParkingZone>().HasMany(x=>x.ParkingSpaces).WithOne(x=>x.ParkingZone);
-        
         modelBuilder.Entity<User>().HasMany(x=>x.ParkingZones).WithOne(x=>x.User);
         modelBuilder.Entity<User>().HasMany(x=>x.Vehicles).WithOne(x=>x.User);
-
+        modelBuilder.Entity<User>().HasMany(x=>x.Reservations).WithOne(x=>x.User);
+        modelBuilder.Entity<Vehicle>().HasMany(x=>x.Reservations).WithOne(x=>x.Vehicle).OnDelete(DeleteBehavior.NoAction);
+        modelBuilder.Entity<ParkingSpace>().HasMany(x=>x.Reservations).WithOne(x=>x.ParkingSpace).OnDelete(DeleteBehavior.NoAction);
+        
     }
- 
-    
 }

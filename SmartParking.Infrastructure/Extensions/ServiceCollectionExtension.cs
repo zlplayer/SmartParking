@@ -17,6 +17,7 @@ public static class ServiceCollectionExtension
         services.AddScoped<IVehicleRepositories, VehicleRepositories>();
         services.AddScoped<IParkingZoneRepositories, ParkingZoneRepositories>();
         services.AddScoped<IParkingSpaceRepositories, ParkingSpaceRepositories>();
+        services.AddScoped<IReservationRepositories, ReservationRepositories>();
         
         services.AddScoped<SmartParkingSeeder>();
     }

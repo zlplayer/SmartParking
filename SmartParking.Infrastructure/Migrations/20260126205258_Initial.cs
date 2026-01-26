@@ -96,7 +96,7 @@ namespace SmartParking.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Weight = table.Column<float>(type: "real", nullable: false),
+                    Width = table.Column<float>(type: "real", nullable: false),
                     Height = table.Column<float>(type: "real", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ParkingZoneId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -112,6 +112,43 @@ namespace SmartParking.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Reservations",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BookedFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BookedUntil = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ConfirmationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CancellationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CancellationReason = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    VehicleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ParkingSpaceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reservations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Reservations_ParkingSpaces_ParkingSpaceId",
+                        column: x => x.ParkingSpaceId,
+                        principalTable: "ParkingSpaces",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Reservations_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Reservations_Vehicles_VehicleId",
+                        column: x => x.VehicleId,
+                        principalTable: "Vehicles",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_ParkingSpaces_ParkingZoneId",
                 table: "ParkingSpaces",
@@ -121,6 +158,21 @@ namespace SmartParking.Infrastructure.Migrations
                 name: "IX_ParkingZones_UserId",
                 table: "ParkingZones",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservations_ParkingSpaceId",
+                table: "Reservations",
+                column: "ParkingSpaceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservations_UserId",
+                table: "Reservations",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservations_VehicleId",
+                table: "Reservations",
+                column: "VehicleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",
@@ -136,6 +188,9 @@ namespace SmartParking.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Reservations");
+
             migrationBuilder.DropTable(
                 name: "ParkingSpaces");
 

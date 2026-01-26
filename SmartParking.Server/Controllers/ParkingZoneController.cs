@@ -1,9 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SmartParking.Application.Dtos;
-using SmartParking.Application.SmartParking.Commands.CreateParkingSpace;
+using SmartParking.Application.SmartParking.Commands.CreateParkingZone;
 using SmartParking.Application.SmartParking.Commands.DeleteParkingZone;
-using SmartParking.Application.SmartParking.Commands.UpdateParkingSpace;
+using SmartParking.Application.SmartParking.Commands.UpdateParkingZone;
 using SmartParking.Application.SmartParking.Queries.GetAllParkingZones;
 using SmartParking.Application.SmartParking.Queries.GetParkingZone;
 
@@ -35,14 +34,14 @@ public class ParkingZoneController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateParkingZone(CreateParkingSpaceCommand command)
+    public async Task<IActionResult> CreateParkingZone(CreateParkingZoneCommand command)
     {
         await _mediator.Send(command);
         return Ok();
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateParkingZone(Guid id, UpdateParkingSpaceCommand command)
+    public async Task<IActionResult> UpdateParkingZone(Guid id, UpdateParkingZoneCommand command)
     {
         command.Id = id;
         await _mediator.Send(command);

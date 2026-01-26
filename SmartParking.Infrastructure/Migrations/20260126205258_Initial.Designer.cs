@@ -12,7 +12,7 @@ using SmartParking.Infrastructure;
 namespace SmartParking.Infrastructure.Migrations
 {
     [DbContext(typeof(SmartParkingDbContext))]
-    [Migration("20260124201120_Initial")]
+    [Migration("20260126205258_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -45,7 +45,7 @@ namespace SmartParking.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Weight")
+                    b.Property<float>("Width")
                         .HasColumnType("real");
 
                     b.HasKey("Id");
@@ -88,6 +88,54 @@ namespace SmartParking.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ParkingZones");
+                });
+
+            modelBuilder.Entity("SmartParking.Domain.Entities.Reservation", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("BookedFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("BookedUntil")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("CancellationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CancellationReason")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ConfirmationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ParkingSpaceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("VehicleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParkingSpaceId");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("Reservations");
                 });
 
             modelBuilder.Entity("SmartParking.Domain.Entities.Role", b =>
@@ -193,6 +241,33 @@ namespace SmartParking.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SmartParking.Domain.Entities.Reservation", b =>
+                {
+                    b.HasOne("SmartParking.Domain.Entities.ParkingSpace", "ParkingSpace")
+                        .WithMany("Reservations")
+                        .HasForeignKey("ParkingSpaceId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SmartParking.Domain.Entities.User", "User")
+                        .WithMany("Reservations")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SmartParking.Domain.Entities.Vehicle", "Vehicle")
+                        .WithMany("Reservations")
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("ParkingSpace");
+
+                    b.Navigation("User");
+
+                    b.Navigation("Vehicle");
+                });
+
             modelBuilder.Entity("SmartParking.Domain.Entities.User", b =>
                 {
                     b.HasOne("SmartParking.Domain.Entities.Role", "Role")
@@ -215,6 +290,11 @@ namespace SmartParking.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SmartParking.Domain.Entities.ParkingSpace", b =>
+                {
+                    b.Navigation("Reservations");
+                });
+
             modelBuilder.Entity("SmartParking.Domain.Entities.ParkingZone", b =>
                 {
                     b.Navigation("ParkingSpaces");
@@ -224,7 +304,14 @@ namespace SmartParking.Infrastructure.Migrations
                 {
                     b.Navigation("ParkingZones");
 
+                    b.Navigation("Reservations");
+
                     b.Navigation("Vehicles");
+                });
+
+            modelBuilder.Entity("SmartParking.Domain.Entities.Vehicle", b =>
+                {
+                    b.Navigation("Reservations");
                 });
 #pragma warning restore 612, 618
         }

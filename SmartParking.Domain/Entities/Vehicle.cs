@@ -10,4 +10,6 @@ public class Vehicle
     
     public User User { get; set; }
     public Guid UserId { get; set; }
+    
+    public List<Reservation> Reservations { get; set; } = new();
 }

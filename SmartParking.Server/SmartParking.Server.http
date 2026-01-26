@@ -37,3 +37,115 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hc
 GET {{api}}/api/User/me
 Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijk3ZTQyMDc2LTJjNzQtNDQwZC02OTg1LTA4ZGU1ODU5MTQ4MCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3Njg5NDQwNzgsImlzcyI6IlNtYXJ0UGFya2luZyIsImF1ZCI6IlNtYXJ0UGFya2luZ1VzZXJzIn0._o2z-pCOMh51GNP20CgeqD5I1kqp69Fmneu7nJMC2io
+
+### Vehicle
+
+GET {{api}}/api/Vehicle/2dcc698d-89f0-41aa-15f5-08de5d15582b
+Accept: application/json
+
+###
+
+POST {{api}}/api/Vehicle
+Content-Type: application/json
+
+{                                                                                                                                                                                                                                                                                                                
+    "brand": "BMW",                                                                                                                                                                                                                                                                                             
+    "model": "M3",                                                                                                                                                                                                                                                                                            
+    "registrationNumber": "WA12345",                                                                                                                                                                                                                                                                               
+    "countryCode": "PL",                                                                                                                                                                                                                                                                                           
+    "userId": "2dcc698d-89f0-41aa-15f5-08de5d15582b"
+}
+
+###
+
+PUT {{api}}/api/Vehicle/51c3e336-d1ec-4b64-e2d8-08de5d1271ac
+Content-Type: application/json
+
+{
+  "brand": "Toyota",
+  "model": "Yaris",
+  "registrationNumber": "WA99999",
+  "countryCode": "PL"
+}     
+
+###
+
+DELETE {{api}}/api/Vehicle/51c3e336-d1ec-4b64-e2d8-08de5d1271ac
+
+### ParkingZone
+
+GET {{api}}/api/ParkingZone
+Accept: application/json
+
+###
+
+GET {{api}}/api/ParkingZone/ef564a51-e760-4900-2658-08de5d136fb8
+Accept: application/json
+
+###
+POST {{api}}/api/ParkingZone
+Content-Type: application/json
+
+ {                                                                                                                                                                                                                                                                                                                
+    "name": "Strefa A",                                                                                                                                                                                                                                                                                            
+    "city": "Warszawa",                                                                                                                                                                                                                                                                                            
+    "tariffType": "Hourly",                                                                                                                                                                                                                                                                                        
+    "regulamin": "Regulamin strefy A",                                                                                                                                                                                                                                                                             
+    "isActive": true,                                                                                                                                                                                                                                                                                              
+    "userId": "2dcc698d-89f0-41aa-15f5-08de5d15582b"                                                                                                                                                                                                                                                               
+ }
+
+###
+PUT {{api}}/api/ParkingZone/ef564a51-e760-4900-2658-08de5d136fb8
+Content-Type: application/json
+
+{
+  "name": "Strefa A - zmieniona",
+  "city": "Kraków",
+  "tariffType": "Daily",
+  "regulamin": "Nowy regulamin",
+  "isActive": false,
+  "userId": "7abeb844-c246-4f06-cd9a-08de5d0f658b"
+}
+
+###
+
+DELETE {{api}}/api/ParkingZone/ef564a51-e760-4900-2658-08de5d136fb8
+
+### ParkingSpace
+
+GET {{api}}/api/ParkingSpace
+Accept: application/json
+
+###
+
+GET {{api}}/api/ParkingSpace/01cc4ca3-7680-4e6d-ecd0-08de5d158dfa
+Accept: application/json
+
+###
+POST {{api}}/api/ParkingSpace
+Content-Type: application/json
+
+{                                                                                                                                                                                                                                                                                                                
+    "code": "B11",
+    "width": 1800.0,
+    "height": 2.0,
+    "status": "Available",
+    "parkingZoneId": "3050bb0b-fb84-422d-e8df-08de5d1574e4"
+}
+
+###
+
+PUT {{api}}/api/ParkingSpace/01cc4ca3-7680-4e6d-ecd0-08de5d158dfa
+Content-Type: application/json
+
+{
+  "code": "B12-beka",
+  "width": 2000.0,
+  "height": 2.2,
+  "status": "Occupied"
+}
+
+###
+
+ DELETE {{api}}/api/ParkingSpace/01cc4ca3-7680-4e6d-ecd0-08de5d158dfa
