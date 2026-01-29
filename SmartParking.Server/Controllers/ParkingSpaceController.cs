@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SmartParking.Application.SmartParking.Commands.CreateParkingSpace;
 using SmartParking.Application.SmartParking.Commands.DeleteParkingSpace;
 using SmartParking.Application.SmartParking.Commands.UpdateParkingSpace;
+using SmartParking.Application.SmartParking.Queries.GetAllAvailableParkingSpace;
 using SmartParking.Application.SmartParking.Queries.GetAllParkingSpace;
 using SmartParking.Application.SmartParking.Queries.GetParkingSpace;
 
@@ -23,6 +24,13 @@ public class ParkingSpaceController : ControllerBase
     public async Task<IActionResult> GetAllParkingSpace()
     {
         var parkingSpace = await _mediator.Send(new GetAllParkingSpaceQuery());
+        return Ok(parkingSpace);
+    }
+    
+    [HttpGet("AvailableParkingSpace")]
+    public async Task<IActionResult> GetAllAvailableParkingSpace()
+    {
+        var parkingSpace = await _mediator.Send(new GetAllAvailableParkingSpaceQuery());
         return Ok(parkingSpace);
     }
 

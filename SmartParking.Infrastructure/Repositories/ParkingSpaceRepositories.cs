@@ -14,6 +14,7 @@ public class ParkingSpaceRepositories:IParkingSpaceRepositories
     }
 
     public async Task<IEnumerable<ParkingSpace>> GetAllParkingSpaceAsync() => await _dbContext.ParkingSpaces.ToListAsync();
+    public async Task<IEnumerable<ParkingSpace>> GetAllAvailableParkingSpaceAsync() => await _dbContext.ParkingSpaces.Where(x=>x.Status=="Available").ToListAsync();
     
     public async Task<ParkingSpace?> GetParkingSpaceByIdAsync(Guid parkingSpaceId)=> await _dbContext.ParkingSpaces.FirstOrDefaultAsync(x => x.Id == parkingSpaceId);
 

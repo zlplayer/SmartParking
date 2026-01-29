@@ -2,6 +2,7 @@
 
 public class GetReservationDto
 {
+    public Guid Id { get; set; }
     public DateTime BookedFrom { get; set; }
     public DateTime BookedUntil { get; set; }
     public string Status { get; set; }

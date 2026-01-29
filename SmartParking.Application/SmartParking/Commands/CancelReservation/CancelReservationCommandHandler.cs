@@ -8,11 +8,14 @@ public class CancelReservationCommandHandler: IRequestHandler<CancelReservationC
 {
     private readonly IMapper _mapper;
     private readonly IReservationRepositories _reservationRepositories;
+    private readonly IParkingSpaceRepositories _parkingSpaceRepositories;
 
-    public CancelReservationCommandHandler(IMapper mapper, IReservationRepositories reservationRepositories)
+    public CancelReservationCommandHandler(IMapper mapper, IReservationRepositories reservationRepositories, IParkingSpaceRepositories parkingSpaceRepositories)
     {
         _mapper = mapper;
         _reservationRepositories = reservationRepositories;
+        _parkingSpaceRepositories = parkingSpaceRepositories;
+
     }
     public async Task Handle(CancelReservationCommand request, CancellationToken cancellationToken)
     {
@@ -20,5 +23,13 @@ public class CancelReservationCommandHandler: IRequestHandler<CancelReservationC
         if (reservation == null) throw new KeyNotFoundException();
         _mapper.Map(request, reservation);
         await _reservationRepositories.UpdateReservationAsync(reservation);
+        
+        var parkingSpace = await _parkingSpaceRepositories.GetParkingSpaceByIdAsync(request.Id);
+        if (parkingSpace != null)
+        {
+            parkingSpace.Status = "Available";
+            await _parkingSpaceRepositories.UpdateParkingSpaceAsync(parkingSpace);
+        }
+        
     }
 }

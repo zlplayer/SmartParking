@@ -30,17 +30,17 @@ Content-Type: application/json
 
 GET {{api}}/api/User/97e42076-2c74-440d-6985-08de58591480
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijk3ZTQyMDc2LTJjNzQtNDQwZC02OTg1LTA4ZGU1ODU5MTQ4MCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3Njg5NDQwNzgsImlzcyI6IlNtYXJ0UGFya2luZyIsImF1ZCI6IlNtYXJ0UGFya2luZ1VzZXJzIn0._o2z-pCOMh51GNP20CgeqD5I1kqp69Fmneu7nJMC2io
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijk3OGQyMzBhLTAwZDYtNGRjMy0yYjc0LTA4ZGU1ZWI5ZjdkMCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3Njk2NDU0MDUsImlzcyI6IlNtYXJ0UGFya2luZyIsImF1ZCI6IlNtYXJ0UGFya2luZ1VzZXJzIn0.Mu5lnpC8GWY35rW6-vWnILP0AQzA6sbP7r8XRjipmcY
 
 ###
 
 GET {{api}}/api/User/me
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijk3ZTQyMDc2LTJjNzQtNDQwZC02OTg1LTA4ZGU1ODU5MTQ4MCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3Njg5NDQwNzgsImlzcyI6IlNtYXJ0UGFya2luZyIsImF1ZCI6IlNtYXJ0UGFya2luZ1VzZXJzIn0._o2z-pCOMh51GNP20CgeqD5I1kqp69Fmneu7nJMC2io
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijk3OGQyMzBhLTAwZDYtNGRjMy0yYjc0LTA4ZGU1ZWI5ZjdkMCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3Njk2NDU0MDUsImlzcyI6IlNtYXJ0UGFya2luZyIsImF1ZCI6IlNtYXJ0UGFya2luZ1VzZXJzIn0.Mu5lnpC8GWY35rW6-vWnILP0AQzA6sbP7r8XRjipmcY
 
 ### Vehicle
 
-GET {{api}}/api/Vehicle/2dcc698d-89f0-41aa-15f5-08de5d15582b
+GET {{api}}/api/Vehicle/978d230a-00d6-4dc3-2b74-08de5eb9f7d0
 Accept: application/json
 
 ###
@@ -53,7 +53,7 @@ Content-Type: application/json
     "model": "M3",                                                                                                                                                                                                                                                                                            
     "registrationNumber": "WA12345",                                                                                                                                                                                                                                                                               
     "countryCode": "PL",                                                                                                                                                                                                                                                                                           
-    "userId": "2dcc698d-89f0-41aa-15f5-08de5d15582b"
+    "userId": "978d230a-00d6-4dc3-2b74-08de5eb9f7d0"
 }
 
 ###
@@ -92,7 +92,7 @@ Content-Type: application/json
     "tariffType": "Hourly",                                                                                                                                                                                                                                                                                        
     "regulamin": "Regulamin strefy A",                                                                                                                                                                                                                                                                             
     "isActive": true,                                                                                                                                                                                                                                                                                              
-    "userId": "2dcc698d-89f0-41aa-15f5-08de5d15582b"                                                                                                                                                                                                                                                               
+    "userId": "978d230a-00d6-4dc3-2b74-08de5eb9f7d0"                                                                                                                                                                                                                                                               
  }
 
 ###
@@ -118,6 +118,9 @@ GET {{api}}/api/ParkingSpace
 Accept: application/json
 
 ###
+GET {{api}}/api/ParkingSpace/AvailableParkingSpace
+Accept: application/json
+###
 
 GET {{api}}/api/ParkingSpace/01cc4ca3-7680-4e6d-ecd0-08de5d158dfa
 Accept: application/json
@@ -131,12 +134,12 @@ Content-Type: application/json
     "width": 1800.0,
     "height": 2.0,
     "status": "Available",
-    "parkingZoneId": "3050bb0b-fb84-422d-e8df-08de5d1574e4"
+    "parkingZoneId": "8ef683fe-cf8e-4e3b-32c9-08de5eba3dab"
 }
 
 ###
 
-PUT {{api}}/api/ParkingSpace/01cc4ca3-7680-4e6d-ecd0-08de5d158dfa
+PUT {{api}}/api/ParkingSpace/8ef683fe-cf8e-4e3b-32c9-08de5eba3dab
 Content-Type: application/json
 
 {
@@ -148,4 +151,65 @@ Content-Type: application/json
 
 ###
 
- DELETE {{api}}/api/ParkingSpace/01cc4ca3-7680-4e6d-ecd0-08de5d158dfa
+DELETE {{api}}/api/ParkingSpace/01cc4ca3-7680-4e6d-ecd0-08de5d158dfa
+
+### Reservation
+
+GET {{api}}/api/Reservation
+Accept: application/json
+
+###
+
+GET {{api}}/api/Reservation/75560207-08ca-4991-8447-08de5ebb6f6f
+Accept: application/json
+
+###
+
+GET {{api}}/api/Reservation/User/978d230a-00d6-4dc3-2b74-08de5eb9f7d0
+Accept: application/json
+
+###
+
+POST {{api}}/api/Reservation
+Content-Type: application/json
+
+{
+    "bookedFrom": "2026-02-01T08:00:00",
+    "bookedUntil": "2026-02-01T18:00:00",
+    "status": "Pending",
+    "creationDate": "2026-01-28T10:00:00",
+    "confirmationDate": "2026-01-28T10:05:00",
+    "userId": "978d230a-00d6-4dc3-2b74-08de5eb9f7d0",
+    "vehicleId": "59AB8799-DF1D-4A33-A573-08DE5EBA2FF6",
+    "parkingSpaceId": "4C799DAA-5ED3-4154-E599-08DE5EBA518C"
+}
+
+###
+
+PUT {{api}}/api/Reservation/daf2a32b-5222-4e48-f91d-08de5eba8732
+Content-Type: application/json
+
+{
+    "bookedFrom": "2026-02-01T09:00:00",
+    "bookedUntil": "2026-02-01T20:00:00",
+    "status": "Confirmed",
+    "creationDate": "2026-01-28T10:00:00",
+    "confirmationDate": "2026-01-28T10:10:00",
+    "userId": "978d230a-00d6-4dc3-2b74-08de5eb9f7d0",
+    "vehicleId": "59AB8799-DF1D-4A33-A573-08DE5EBA2FF6",
+    "parkingSpaceId": "4C799DAA-5ED3-4154-E599-08DE5EBA518C"
+}
+
+###
+
+PUT {{api}}/api/Reservation/CancelReservation/daf2a32b-5222-4e48-f91d-08de5eba8732
+Content-Type: application/json
+
+{
+    "cancellationDate": "2026-01-28T12:00:00",
+    "cancellationReason": "Zmiana planow"
+}
+
+###
+
+DELETE {{api}}/api/Reservation/daf2a32b-5222-4e48-f91d-08de5eba8732
